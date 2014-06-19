@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Jun 19, 2014 6:48:48 AM                                                        
+
+     project    
+     description
+                   
+     Quovantis_Dev                                                                
+     ====================================================================== -->
+<project name="project" default="default">
+	<description>
+            description
+    </description>
+
+	<property name='server.home' value='E:/Softwares/apache-tomcat-7.0.54' />
+	<property name='target.dir' location='target' />
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="default" depends="clean" description="description">
+		<copy todir='${server.home}/webapps' file='${target.dir}/angular-js.war' />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="clean">
+		<delete dir='${server.home}/webapps/angular-js' />
+		<delete>
+			<fileset dir="${server.home}/webapps">
+				<include name="angular-js.war" />
+			</fileset>
+		</delete>
+	</target>
+
+</project>
